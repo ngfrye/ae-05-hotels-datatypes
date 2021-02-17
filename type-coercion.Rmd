@@ -23,6 +23,8 @@ c(1, 1L, "C")
 typeof(c(1, 1L, "C"))
 ```
 
+I was right about this one, because it seems like if there's a character R will turn everything into a character. 
+
 -   `c(1L / 0, "A")`
 
 ```{r}
@@ -40,6 +42,8 @@ typeof("A")
 typeof(c(1L / 0, "A"))
 ```
 
+Double seems to be dominant over integer, but character is dominant over both. 
+
 -   `c(1:3, 5)`
 
 ```{r}
@@ -51,9 +55,13 @@ typeof(1:3)
 typeof(5)
 ```
 
+Not sure why 5 was double.
+
 ```{r}
 typeof(c(1:3, 5))
 ```
+
+But once again, double is dominant over integer. 
 
 -   `c(3, "3+")`
 
@@ -69,6 +77,9 @@ typeof("3+")
 ```{r}
 typeof(c(3, "3+"))
 ```
+
+Got these right!
+
 -   `c(NA, TRUE)`
 
 ```{r}
@@ -83,6 +94,8 @@ typeof(TRUE)
 ```{r}
 typeof(c(NA, TRUE))
 ```
+
+Got these right!
 
 ## References {#references}
 1. Assignment Adapted from [Mine Cetinkaya-Rundel's Data Science in a Box](https://github.com/rstudio-education/datascience-box)

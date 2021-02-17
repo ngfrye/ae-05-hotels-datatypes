@@ -11,7 +11,7 @@
 
 <meta name="author" content="YOU" />
 
-<meta name="date" content="2021-01-24" />
+<meta name="date" content="2021-02-17" />
 
 <title>Type coercion</title>
 
@@ -267,7 +267,7 @@ div.tocify {
 
 <h1 class="title toc-ignore">Type coercion</h1>
 <h4 class="author">YOU</h4>
-<h4 class="date">2021-01-24</h4>
+<h4 class="date">2021-02-17</h4>
 
 </div>
 
@@ -285,6 +285,7 @@ div.tocify {
 <pre><code>## [1] &quot;C&quot;</code></pre>
 <pre class="r"><code>typeof(c(1, 1L, &quot;C&quot;))</code></pre>
 <pre><code>## [1] &quot;character&quot;</code></pre>
+<p>I was right about this one, because it seems like if there’s a character R will turn everything into a character.</p>
 <ul>
 <li><code>c(1L / 0, &quot;A&quot;)</code></li>
 </ul>
@@ -300,6 +301,7 @@ div.tocify {
 <pre><code>## [1] &quot;character&quot;</code></pre>
 <pre class="r"><code>typeof(c(1L / 0, &quot;A&quot;))</code></pre>
 <pre><code>## [1] &quot;character&quot;</code></pre>
+<p>Double seems to be dominant over integer, but character is dominant over both.</p>
 <ul>
 <li><code>c(1:3, 5)</code></li>
 </ul>
@@ -309,8 +311,10 @@ div.tocify {
 <pre><code>## [1] &quot;integer&quot;</code></pre>
 <pre class="r"><code>typeof(5)</code></pre>
 <pre><code>## [1] &quot;double&quot;</code></pre>
+<p>Not sure why 5 was double.</p>
 <pre class="r"><code>typeof(c(1:3, 5))</code></pre>
 <pre><code>## [1] &quot;double&quot;</code></pre>
+<p>But once again, double is dominant over integer.</p>
 <ul>
 <li><code>c(3, &quot;3+&quot;)</code></li>
 </ul>
@@ -322,6 +326,7 @@ div.tocify {
 <pre><code>## [1] &quot;character&quot;</code></pre>
 <pre class="r"><code>typeof(c(3, &quot;3+&quot;))</code></pre>
 <pre><code>## [1] &quot;character&quot;</code></pre>
+<p>Got these right!</p>
 <ul>
 <li><code>c(NA, TRUE)</code></li>
 </ul>
@@ -333,6 +338,7 @@ div.tocify {
 <pre><code>## [1] &quot;logical&quot;</code></pre>
 <pre class="r"><code>typeof(c(NA, TRUE))</code></pre>
 <pre><code>## [1] &quot;logical&quot;</code></pre>
+<p>Got these right!</p>
 <div id="references" class="section level2">
 <h2>References</h2>
 <ol style="list-style-type: decimal">
